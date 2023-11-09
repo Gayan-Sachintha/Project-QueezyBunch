@@ -27,28 +27,30 @@
             <form class="regform-align">
                 <div class="regform-group">
                     <label for="fullName">Full Name :</i></label>
-                    <input type="text" class="input-field" id="fullName" placeholder="Enter Full Name">
+                    <input type="text" class="input-field" id="fullName" placeholder="Enter Full Name" required>
                 </div>
                 <div class="regform-group">
                     <label for="email">Email Address :</i></label>
-                    <input type="email" class="input-field" id="email" placeholder="Enter password">
+                    <input type="email" class="input-field" id="email" placeholder="Enter password" required>
                 </div>
                 <div class="regform-group">
                     <label for="age">Age :</i></label>
-                    <input type="number" class="input-field" id="age" placeholder="Enter your age" min="0">
+                    <input type="number" class="input-field" id="age" placeholder="Enter your age" min="0" required>
                 </div>
                 <div class="regform-group">
                     <label for="password">Password :</i></label>
-                    <input type="password" class="input-field" id="password" placeholder="Enter password">
+                    <input type="password" class="input-field" id="password" placeholder="Enter password" required>
                 </div>
                 <div class="regform-group">
                     <label for="confirmPassword">Confirm Password :</i></label>
-                    <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm your password">
+                    <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm your password" required>
                 </div>
                 <div class="text-center">
-                    <button class="cancelbtn">Cancel</button>
-                    <button class="regformBtn">Register</button>
-                </div>    
+                    <button class="cancelbtn" type="reset">Cancel</button>
+                    <button class="regformBtn" type="submit">Register</button> <br><br>
+                    Already Have An Acconut ? <a href="login.html">Click Here</a>
+                    
+                </div>   
             </form>
         </div>
     </div>   

@@ -6,7 +6,7 @@ body {
 }
 
 .image-container {
-    background-image: url("../images/snow_flakes.png");
+    background-image: url("../assets/images/snow_flakes.png");
     background-size: 100% 100%;
     object-fit: contain;
 }
@@ -51,6 +51,15 @@ body {
     margin-right: 4rem;
     font-size: 30px;
 
+}
+
+.links a {
+
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.links a:hover {
+    color: #9747FF;
 }
 
 .links>a {

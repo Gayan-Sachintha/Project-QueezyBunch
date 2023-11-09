@@ -6,7 +6,7 @@ body {
 }
 
 .image-container {
-    background-image: url("../images/snow_flakes.png");
+    background-image: url("../assets/images/snow_flakes.png");
     background-size: 100% 100%;
     object-fit: contain;
 }
@@ -61,6 +61,7 @@ body {
 .navbar {
     height: 15vh;
     padding: 0 2rem;
+    font-weight: bold;
 }
 
 .logo {
@@ -79,7 +80,7 @@ body {
 }
 
 .links a:hover {
-    color: yellow;
+    color: #9747FF;
 }
 
 .links>a {
@@ -199,6 +200,10 @@ body {
     padding: 10px 15px;
 }
 
+.custom-icon {
+    font-size: 3rem;
+}
+
 /* Registration Page Styles */
 
 .regform-align {
@@ -214,7 +219,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    height: 65vh;
+    height: 70vh;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.068);
     border-radius: 42px;
