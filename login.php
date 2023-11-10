@@ -18,7 +18,7 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="index.html"><i class="bi bi-house custom-icon"></i></a>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -43,7 +43,7 @@
                 </form>
                 <div class="text-center">
                     <h6 class="regtxt">Don't Have a Profile? </h6>
-                    <a href="register.html"><button class="regbtn" id="regbtn">Register</button></a>
+                    <a href="register.php" id="reglink"><button class="regbtn" id="regbtn">Register</button></a>
                  </div>
             </div>
         </div>

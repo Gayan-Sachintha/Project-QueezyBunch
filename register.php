@@ -18,8 +18,8 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="index.html"><i class="bi bi-house custom-icon"></i></a>
-                <a href="login.html"><i class="bi bi-person-check custom-icon"></i></a>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></a>
+                <a href="login.php"><i class="bi bi-person-check custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -50,8 +50,8 @@
                 </div>
                 <div class="text-center">
                     <button class="cancelbtn" type="reset" id="cancelbtn">Cancel</button>
-                    <button class="regformBtn" type="submit">Register</button> <br><br>
-                    Already Have An Acconut ? <a href="login.html">Click Here</a>
+                    <button class="regformBtn" type="submit" id="regbtn" name="register" >Register</button> <br><br>
+                    Already Have An Acconut ? <a href="login.html" id="loginlink">Click Here</a>
                     
                 </div>   
             </form>

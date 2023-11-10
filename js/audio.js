@@ -51,9 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const startbtn = document.getElementById("cancelbtn");
+    const regbtn = document.getElementById("regbtn");
+
     const tone = new Audio("../assets/audio/goThrough.mp3");
 
-    startbtn.addEventListener("click", function () {
+    cancelbtn.addEventListener("click", function () {
+        tone.play();
+    });
+    regbtn.addEventListener("click", function () {
         tone.play();
     });
 });

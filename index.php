@@ -18,9 +18,9 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="login.html">LOGIN</a>
-                <a href="register.html">SIGN-UP</a>
-                <a href="register.html">HOW TO PLAY</a>
+                <a href="login.php">LOGIN</a>
+                <a href="register.php">SIGN-UP</a>
+                <a href="howtoplay.php">HOW TO PLAY</a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>

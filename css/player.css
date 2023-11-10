@@ -60,6 +60,7 @@ body {
 
 .links a:hover {
     color: #9747FF;
+    transform: scale(1.2);
 }
 
 .links>a {
@@ -159,7 +160,7 @@ body {
 .btnGo:hover {
     background-color: #9747FF;
     color: #D9D9D9;
-
+    transform: scale(1.2);
 }
 
 .custom-icon {

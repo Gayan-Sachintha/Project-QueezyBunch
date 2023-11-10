@@ -18,7 +18,9 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="index.html"><i class="bi bi-x-lg custom-icon"></i></i></a>
+                <a href="index.php"><i class="bi bi-x-lg custom-icon"></i></i></a>
+                <a href="profile.php"><i class="bi bi-person-vcard-fill custom-icon"></i></i></a>
+                <a href="logout.php">Logout</a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
