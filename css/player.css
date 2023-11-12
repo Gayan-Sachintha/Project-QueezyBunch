@@ -61,6 +61,7 @@ body {
 .links a:hover {
     color: #9747FF;
     transform: scale(1.2);
+    text-shadow: 0 0 60px rgb(255, 255, 255);
 }
 
 .links>a {
@@ -88,7 +89,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-left: 20%;
     font-weight: bold;
     font-size: large;
@@ -106,9 +107,10 @@ body {
 .imgApi {
     width: 40%;
     height: auto;
-    margin-left: 30%;
-    margin-top: 3%;
+    margin-left: 26%;
+    margin-top: 1%;
     display: block;
+    transform: scale(0.8);
 }
 
 .txtAns {
@@ -125,7 +127,7 @@ body {
     flex-direction: row;
     align-items: center;
     margin-left: 30%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 .ans-align input {
@@ -161,6 +163,7 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
 
 .custom-icon {

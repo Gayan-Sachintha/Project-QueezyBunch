@@ -6,7 +6,7 @@ body {
 }
 
 .image-container {
-    background-image: url("../assets/images/snow_flakes.png");
+    background-image: url("../assets/images/giphy.gif");
     background-size: 100% 100%;
     object-fit: contain;
 }
@@ -18,6 +18,15 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    animation-name: indexTitle;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes indexTitle {
+  0% {color: white;}
+  50% {color: #9747FF;}
+  100% {color: white;}
 }
 
 .startBtn {
@@ -36,11 +45,20 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
 
 #quiz-image {
     width: 422px;
     height: 422px;
+    animation-name: quiz-image;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes quiz-image {
+  50% {transform: scale(1.1);
+  }
 }
 
 .container {
@@ -82,6 +100,7 @@ body {
 .links a:hover {
     color: #9747FF;
     transform: scale(1.2);
+    text-shadow: 0 0 60px rgb(255, 255, 255);
 }
 
 .links>a {
@@ -143,20 +162,6 @@ body {
     color: white;
   }
 
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover {
-    background-color: #0069d9;
-    transform: scale(1.2);
-  }
-
 .regtxt {
     color: white;
     text-align: center;
@@ -178,6 +183,8 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
+
 
 }
 
@@ -197,7 +204,7 @@ body {
     background-color: #B61717;
     color: #D9D9D9;
     transform: scale(1.2);
-
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
 }
 
 .text-center {
@@ -267,7 +274,7 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;
     transform: scale(1.2);
-
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
 
 .cancelbtn {
@@ -286,6 +293,7 @@ body {
     background-color: #B61717;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
 }
 
 /* Profile Page Styles */
@@ -349,6 +357,7 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
 
 .cancelbtn {
@@ -367,6 +376,7 @@ body {
     background-color: #B61717;
     color: #D9D9D9;
     transform: scale(1.2);
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
 }
 
 .updateformbtn {
@@ -385,6 +395,5 @@ body {
     background-color: #9747FF;
     color: #D9D9D9;    
     transform: scale(1.2);
-
-
+    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
