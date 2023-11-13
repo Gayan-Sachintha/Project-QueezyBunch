@@ -1,5 +1,8 @@
-<?
+<?php
+
 include 'includes/config.php';
+include 'includes/registerHandler.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +34,7 @@ include 'includes/config.php';
     <div class="container">    
         <div class="regform-wrapper">
             <h1 class="text-center">Create Your Profile</h1>
-            <form class="regform-align">
+            <form class="regform-align" action="register.php" method="post">
                 <div class="regform-group">
                     <label for="fullName">Full Name :</i></label>
                     <input type="text" class="input-field" id="fullName" name="fullName" placeholder="Enter Full Name" required>

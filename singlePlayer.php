@@ -92,7 +92,7 @@
 
             <div class="ans-align">
                 <p class="txtAns">Enter The Answer : </p>
-                <input type="number" class="input-field" id="input" placeholder="Enter Answer" min="0">
+                <input type="number" class="input-field" id="input" name="input" placeholder="Enter Answer" min="0">
                 <button type="submit" class="btnGo" onclick="handleInput()">Go!</button>
             </div>
         </div>

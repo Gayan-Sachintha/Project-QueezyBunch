@@ -1,3 +1,10 @@
+<?php
+
+include 'includes/config.php';
+include 'includes/loginHandler.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,18 +33,18 @@
             <div class="form-wrapper">
                 <h1 class="text-center">QUEZZY BUNCH</h1>
                 <h3 class="text-center">WELCOME</h3>
-                <form class="form-align">
+                <form class="form-align" method="post">
                     <div class="form-group">
                         <label for="email"><i class="bi bi-envelope-fill"></i></label>
-                        <input type="email" class="input-field" id="email" placeholder="Enter email" required>
+                        <input type="email" class="input-field" id="email" name="email" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
                         <label for="password"><i class="bi bi-lock-fill"></i></i></label>
-                        <input type="password" class="input-field" id="password" placeholder="Enter Password" required>
+                        <input type="password" class="input-field" id="password" name="password" placeholder="Enter Password" required>
                         
                     </div>
                     <div class="text-center">
-                        <button class="loginbtn" id="loginbtn">Login</button>
+                        <button class="loginbtn" id="loginbtn" name="login">Login</button>
                     </div>    
                 </form>
                 <div class="text-center">
