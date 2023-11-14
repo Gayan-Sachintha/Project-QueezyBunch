@@ -296,6 +296,40 @@ body {
     box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
 }
 
+/* Handler Pages Styles */
+
+.message{
+  color: white;
+  position: sticky;
+  margin:0 auto;
+  max-width: 100%;
+  background-color: #332142;
+  padding:1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  gap:1.5rem;
+}
+
+.message span{
+  font-size: 2rem;
+  color:white;
+  font-weight: bold;
+}
+
+.message i{
+  cursor: pointer;
+  color: red;
+  font-size: 2.5rem;
+  transition: all 600ms ease;
+
+}
+
+.message i:hover{
+  transform: scale(1.4);
+}
+
 /* Profile Page Styles */
 
 .profileform-align {
@@ -397,3 +431,4 @@ body {
     transform: scale(1.2);
     box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
 }
+

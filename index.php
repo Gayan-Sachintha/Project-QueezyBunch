@@ -19,6 +19,7 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
+                
                 <a href="login.php">LOGIN</a>
                 <a href="register.php">SIGN-UP</a>
                 <a href="howtoplay.php">HOW TO PLAY</a>
