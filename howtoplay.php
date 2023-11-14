@@ -1,6 +1,10 @@
+<?php
+    include 'includes/config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +22,11 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="index.php"><i class="bi bi-house custom-icon"></i></a>
-                <a href="logout.php"><i class="bi bi-box-arrow-right custom-icon"></i></a>
+            <a href="index.php"><i class="bi bi-house custom-icon"></i></a>
+            <?php if($_SESSION['loggedIn']){ ?>
+                  <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
+                <?php } ?>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>

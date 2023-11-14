@@ -1,3 +1,11 @@
+<?php
+
+include 'includes/config.php';
+if(!$_SESSION['loggedIn']){
+    redirect("login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +27,11 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                
-                <a href="login.php">LOGIN</a>
-                <a href="register.php">SIGN-UP</a>
-                <a href="howtoplay.php">HOW TO PLAY</a>
+            <a href="howtoplay.php">HOW TO PLAY</a>
+            <?php if($_SESSION['loggedIn']){ ?>
+                  <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
+                <?php } ?>
+                <a href="profile.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -30,7 +39,9 @@
             <div class="content">
                 <img id="quiz-image" src="./assets/images/icon quiz.png" alt="">
                 <h1 class="indexTitle">Let’s Play And Win!</h1>
-                <button class="startBtn" id="startbtn">Start Playing</button>
+                <?php if($_SESSION['loggedIn']){ ?>
+                  <a href="howtoplay.php"><button class="startBtn" id="startbtn">Start Playing</button></a>
+                <?php } ?>
             </div>
         </div>
     </div>

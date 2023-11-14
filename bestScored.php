@@ -1,3 +1,11 @@
+<?php
+
+include 'includes/config.php';
+if(!$_SESSION['loggedIn']){
+    redirect("login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

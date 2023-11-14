@@ -426,9 +426,9 @@ body {
 }
 
 .updateformbtn:hover {
-    background-color: #9747FF;
-    color: #D9D9D9;    
+    background-color: #ffb847;
+    color: #000000;    
     transform: scale(1.2);
-    box-shadow: 0 0 40px rgba(166, 0, 255, 0.8);
+    box-shadow: 0 0 40px rgba(255, 238, 0, 0.8);
 }
 

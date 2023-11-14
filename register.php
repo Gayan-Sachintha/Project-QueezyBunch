@@ -1,8 +1,6 @@
 <?php
-
 include 'includes/config.php';
 include 'includes/registerHandler.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +26,6 @@ include 'includes/registerHandler.php';
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
                 <a href="index.php"><i class="bi bi-house custom-icon"></i></a>
-                <a href="login.php"><i class="bi bi-person-check custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -58,7 +55,7 @@ include 'includes/registerHandler.php';
                     <input type="password" class="input-field" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
                 </div>
                 <div class="text-center">
-                    <button class="cancelbtn" type="reset" id="cancelbtn">Cancel</button>
+                    <button class="cancelbtn" type="reset" id="cancelbtn">Reset</button>
                     <button class="regformBtn" type="submit" id="regbtn" name="register" >Register</button> <br><br>
                     Already Have An Acconut ? <a href="login.php" id="loginlink">Click Here</a>
                     

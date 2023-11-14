@@ -1,3 +1,11 @@
+<?php
+
+include 'includes/config.php';
+if(!$_SESSION['loggedIn']){
+    redirect("login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +27,10 @@
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
                 <a href="howtoplay.php">HOW TO PLAY</a>
-                <a href="logout.php">Logout</a>
+                <?php if($_SESSION['loggedIn']){ ?>
+                  <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
+                <?php } ?>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -30,22 +41,22 @@
                     <form class="profileform-align">
                         <div class="profileform-group">
                             <label for="fullName">Full Name :</i></label>
-                            <input type="text" class="input-field" id="fullName" required>
+                            <input type="text" class="input-field" id="updatefullName" name="updatefullName" required>
                         </div>
                         <div class="profileform-group">
                             <label for="email">Email Address :</i></label>
-                            <input type="email" class="input-field" id="email"required>
+                            <input type="email" class="input-field" id="updateemail" name="updateemail" required>
                         </div>
                         <div class="profileform-group">
                             <label for="age">Age :</i></label>
-                            <input type="number" class="input-field" id="age" min="0" required>
+                            <input type="number" class="input-field" id="updateage" name="updateage" min="0" required>
                         </div>
                         <div class="profileform-group">
                             <label for="password">Password :</i></label>
-                            <input type="password" class="input-field" id="password" required>
+                            <input type="password" class="input-field" id="updatepassword" name="updatepassword" required>
                         </div>
                         <div class="text-center">
-                            <button class="updateformbtn" type="submit" id="updateformbtn" name="register" >Update</button> <br><br>                            
+                            <button class="updateformbtn" type="submit" id="updateformbtn" name="update" >Update</button> <br><br>                            
                         </div>   
                     </form>
                 </div>

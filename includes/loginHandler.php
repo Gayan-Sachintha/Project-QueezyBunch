@@ -11,15 +11,41 @@ if(isset($_POST['login'])) {
 
         // Use password_verify to check if the provided password matches the hashed password
         if(password_verify($password, $row['password'])) {
+            $_SESSION['loggedIn'] = true;
             $_SESSION['user_name'] = $row['fullName'];
             $_SESSION['user_email'] = $row['email'];
-            header('location:index.php');
+            header('location:howtoplay.php');
         } else {
             $message[] = 'Incorrect email or password!';
         }
     } else {
         $message[] = 'User not found!';
     }
+}
+
+//for logout
+
+if (isset($_GET['logout'])) {
+
+    $_SESSION = array();
+
+    session_destroy();
+
+    header("Location: login.php");
+    exit();
+}
+
+// password error notification 
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '
+      <div class="message">
+         <span>'.$message.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+   }
 }
 
 ?>

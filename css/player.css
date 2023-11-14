@@ -6,7 +6,7 @@ body {
 }
 
 .image-container {
-    background-image: url("../assets/images/snow_flakes.png");
+    background-image: url("../assets/images/giphy.gif");
     background-size: 100% 100%;
     object-fit: contain;
 }
@@ -79,10 +79,19 @@ body {
     font-weight: 700;
     line-height: normal;
     text-align: center;
-    display: flex;
     flex-direction: column;
+    animation-name: sTitle;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 90px rgba(166, 0, 255, 0.8);
 
 }
+
+@keyframes sTitle {
+    0% {color: white;}
+    50% {color: #9747FF;}
+    100% {color: white;}
+  }
 
 .single-Data {
     display: flex;
@@ -97,8 +106,9 @@ body {
 
 .single-Data span {
     display: inline-block;
-    padding: 10px 15px;
-    background-color: rgb(255, 255, 255);
+    padding: 8px 55px;
+    background-color: #9747FF;
+    color: white;
     border-radius: 30px;
     margin-right: 20%;
     text-align: center;

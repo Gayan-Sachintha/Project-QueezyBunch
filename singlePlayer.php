@@ -1,3 +1,10 @@
+<?php
+include 'includes/config.php';
+if(!$_SESSION['loggedIn']){
+    redirect("login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,20 +78,21 @@
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="index.php"><i class="bi bi-x-lg custom-icon"></i></i></a>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
                 <a href="profile.php"><i class="bi bi-person-vcard-fill custom-icon"></i></i></a>
-                <a href="logout.php">Logout</a>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
 
         <div class="container">
-            <div class="sTitle">Single Player</div>
+            <div class="sTitle">LET'S PLAY ! </div>
 
             <div class="single-Data">
-                <span>Question : 01</span>
-                <span>Score : 234</span>
-                <span>Time Left : 01:23</span>
+                <span>Level 01</span>
+                <span>Question 01</span>
+                <span>Score  234</span>
+                <span>Time 01:23</span>
             </div>
             <div class="imgApi">
                 <img src="" alt="Question Image" id="imgApi" class="color-image">
