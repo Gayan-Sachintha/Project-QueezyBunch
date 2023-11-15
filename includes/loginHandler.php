@@ -9,12 +9,12 @@ if(isset($_POST['login'])) {
     if(mysqli_num_rows($select_users) > 0) {
         $row = mysqli_fetch_assoc($select_users);
 
-        // Use password_verify to check if the provided password matches the hashed password
+        // Use password verify to check if the provided password matches the hashed password
         if(password_verify($password, $row['password'])) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['user_name'] = $row['fullName'];
             $_SESSION['user_email'] = $row['email'];
-            header('location:howtoplay.php');
+            header('location:index.php');
         } else {
             $message[] = 'Incorrect email or password!';
         }
