@@ -38,29 +38,11 @@ if(!$_SESSION['loggedIn']){
                 <div class="profileform-wrapper">
                     <h1 class="text-center">MY SCORES</h1>
                     <form class="profileform-align">
-                    <table class="table">
-            <thead>
-                <tr>
-                    <th>Game ID</th>
-                    <th>Played Time</th>
-                    <th>Total Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
 
-                $scores = fetchmyScores();
 
-                foreach($scores as $game){ ?>
-                <tr>
-                    <td><?=$game['gameIdentity'];?></td>
-                    <td><?=$game['gamePlayed_On'];?></td>
-                    <td><?=$game['scores'];?></td>
-                </tr>
-                <?php } ?>
+<!-- content put this i fetch data with a table -->
 
-            </tbody>
-        </table>
+
                     </form>
                 </div>
             </div>

@@ -9,26 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const muteButton = document.getElementById("mutebtn");
-    const backgroundAudio = new Audio("../assets/audio/bg_music.mp3"); 
-    let isMuted = false;
-
-    
-    muteButton.addEventListener("click", function() {
-        if (isMuted) {
-            backgroundAudio.loop = true;
-            backgroundAudio.play();
-            muteButton.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
-        } else {
-            backgroundAudio.loop = false;
-            backgroundAudio.pause();
-            muteButton.innerHTML = '<i class="bi bi-volume-mute-fill"></i>';
-        }
-        isMuted = !isMuted;
-    });
-});
-
 //for login
 
 document.addEventListener("DOMContentLoaded", function () {

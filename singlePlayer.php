@@ -1,6 +1,6 @@
 <?php
 include 'includes/config.php';
-if(!$_SESSION['loggedIn']){
+if (!$_SESSION['loggedIn']) {
     redirect("login.php");
 }
 ?>
@@ -18,59 +18,91 @@ if(!$_SESSION['loggedIn']){
     <script src="js/bgAudio.js"></script>
 
     <title>QUEEZY BUNCH</title>
-     <script>
-        var imgApi = "";
-        var solution = -1;
+    <script>
+        let timeLeft = 30;
+        let score = 0;
+        let numQuestions = 1;
+        let currentLevel = 1;
+        let timer;
 
-        let newgame = function() {
-            fetchImage();
-            document.getElementById("input").value = "";
+        function updateUI() {
+            document.getElementById("question-number").textContent = numQuestions;
+            document.getElementById("score").textContent = score;
+            document.getElementById("timer").textContent = timeLeft;
+            document.getElementById("level-no").textContent = currentLevel;
         }
 
-        let handleInput = function() {
-            let inp = document.getElementById("input");
-            var note = document.getElementById("note");
-            if (inp.value === solution.toString()) {
-                note.innerHTML = 'Correct!';
+        function handleTimeOut() {
+            clearInterval(timer);
+            alert("Time's up! Game Over.");
+
+            if (currentLevel > 1) {
+                alert("Congratulations! You have completed Level " + (currentLevel - 1) + ".");
+            }
+
+            window.location.href = "index.php";
+        }
+
+        function handleInput() {
+            // Check if time is still remaining
+            if (timeLeft > 0) {
+                let answer = document.getElementById("answer").value;
+                if (answer !== "") {
+                    if (answer == solution) {
+                        score++;
+                        numQuestions++;
+                        updateUI();
+
+                        if (numQuestions > 5) {
+                            handleCorrectAnswer();
+                        } else {
+                            fetchImage();
+                        }
+                    } else {
+                        alert("Incorrect answer. Try again!");
+                    }
+                } else {
+                    alert("Please enter an answer before pressing 'Go!'");
+                }
             } else {
-                note.innerHTML = 'Not Correct!';
+                alert("Time's up! Game Over.");
+                window.location.href = "index.php";
             }
         }
 
-        let startQuest = function(data) {
-            try {
-                var parsed = JSON.parse(data);
-                imgApi = parsed.question;
-                solution = parsed.solution;
-
-                if (imgApi) {
-                    let img = document.getElementById("imgApi");
-                    img.src = imgApi;
-                    let note = document.getElementById("note");
-                    note.innerHTML = 'Ready?';
-                } else {
-                    console.log('Image URL not found in the API response.');
-                }
-            } catch (error) {
-                console.error('Error parsing JSON response:', error);
-            }
+        function handleCorrectAnswer() {
+            alert("Congratulations! You have completed Level " + currentLevel + ".");
+            currentLevel++;
+            numQuestions = 1;
+            fetchImage();
         }
 
-        let fetchImage = async function() {
-            try {
-                let response = await fetch('https://marcconrad.com/uob/tomato/api.php');
-                if (response.ok) {
-                    let data = await response.text();
-                    startQuest(data);
-                } else {
-                    console.error('Failed to fetch image from the API.');
-                }
-            } catch (error) {
-                console.error('An error occurred:', error);
-            }
+        function fetchImage() {
+            fetch('https://marcconrad.com/uob/tomato/api.php')
+                .then(response => response.json())
+                .then(data => {
+                    imgApi = data.question;
+                    solution = data.solution;
+                    document.getElementById("imgApi").src = imgApi;
+                    document.getElementById("note").innerHTML = 'Ready?';
+                    clearInterval(timer); // Stop the previous timer
+                    timer = setInterval(() => {
+                        timeLeft--;
+                        document.getElementById("timer").textContent = timeLeft;
+                        if (timeLeft <= 0) {
+                            handleTimeOut();
+                        }
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Error fetching image from the API:', error);
+                });
         }
+
+        // Initial fetch on page load
         fetchImage();
     </script>
+
 </head>
 
 <body>
@@ -89,10 +121,10 @@ if(!$_SESSION['loggedIn']){
             <div class="sTitle">LET'S PLAY ! </div>
 
             <div class="single-Data">
-                <span>Level 01</span>
-                <span>Question 01</span>
-                <span>Score  234</span>
-                <span>Time 01:23</span>
+                <span>Level <span id="level-no">1</span></span>
+                <span>Question<span id="question-number">1</span></span>
+                <span>Score<span id="score">0</span></span>
+                <span>Time <span id="timer">30</span></span>
             </div>
             <div class="imgApi">
                 <img src="" alt="Question Image" id="imgApi" class="color-image">
@@ -100,9 +132,11 @@ if(!$_SESSION['loggedIn']){
 
             <div class="ans-align">
                 <p class="txtAns">Enter The Answer : </p>
-                <input type="number" class="input-field" id="input" name="input" placeholder="Enter Answer" min="0">
+                <input type="number" class="input-field" id="answer" name="input" placeholder="Enter Answer" min="0">
                 <button type="submit" class="btnGo" onclick="handleInput()">Go!</button>
             </div>
+            <div id="note"></div>
+
         </div>
     </div>
     <audio id="music">

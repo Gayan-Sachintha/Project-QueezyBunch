@@ -31,7 +31,7 @@ if(!$_SESSION['loggedIn']){
             <?php if($_SESSION['loggedIn']){ ?>
                   <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
                 <?php } ?>
-                <a href="profile.php"><i class="bi bi-power custom-icon"></i></a>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>

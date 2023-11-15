@@ -1,4 +1,5 @@
 <?php
+
 // Fetch user data to populate the form fields
 $userEmail = $_SESSION['user_email'];
 $selectUser = mysqli_query($conn, "SELECT * FROM users WHERE email = '$userEmail'") or die('Query failed');
