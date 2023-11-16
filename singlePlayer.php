@@ -85,7 +85,7 @@ if (!$_SESSION['loggedIn']) {
                     solution = data.solution;
                     document.getElementById("imgApi").src = imgApi;
                     document.getElementById("note").innerHTML = 'Ready?';
-                    clearInterval(timer); // Stop the previous timer
+                    clearInterval(timer);                                 // Stops the previous timer
                     timer = setInterval(() => {
                         timeLeft--;
                         document.getElementById("timer").textContent = timeLeft;
@@ -99,7 +99,6 @@ if (!$_SESSION['loggedIn']) {
                 });
         }
 
-        // Initial fetch on page load
         fetchImage();
     </script>
 
