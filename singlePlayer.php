@@ -40,6 +40,10 @@ if(isset($_GET['new'])){
         let timer;
         let imgApi;
         let solution;
+        let correctAnsSound = new Audio("assets/audio/goThrough.mp3");
+        let wrongAnsSound = new Audio("assets/audio/incorrect.mp3");
+        let levelUpSound = new Audio("assets/audio/levelComplete.mp3");
+        let timeOutSound = new Audio("assets/audio/timesUp.mp3");
 
         function updateUI() {
             document.getElementById("question-number").textContent = numQuestions;
@@ -50,6 +54,7 @@ if(isset($_GET['new'])){
 
         function handleTimeOut() {
             clearInterval(timer);
+            timeOutSound.play(); //play tone when time is up
             Swal.fire({
                 title: "Time's UP !",
                 text: "Time's up! Game Over.",
@@ -81,12 +86,13 @@ if(isset($_GET['new'])){
                         } else {
                             fetchImage();
                         }
-
+                        correctAnsSound.play(); //play tone when asnwer is correct
                         Swal.fire({
                             title: "Answered !",
                             icon: "success"
                         });
                     } else {
+                        wrongAnsSound.play(); //play tone when asnwer is wrong
                         Swal.fire({
                             title: "Wrong Answer",
                             text: "That answer is wrong",
@@ -111,6 +117,7 @@ if(isset($_GET['new'])){
         }
 
         function handleCorrectAnswer() {
+            levelUpSound.play(); //play tone when level is up
             Swal.fire({
                 title: "Level Passed",
                 text: "Congratulations! You have completed Level " + (currentLevel - 1) + ".",
@@ -192,6 +199,7 @@ if(isset($_GET['new'])){
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
                 <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
+                <a href="scores.php"><i class="bi bi-123 custom-icon"></i></a>
                 <a href="profile.php"><i class="bi bi-person-fill custom-icon"></i></i></a>
                 <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>

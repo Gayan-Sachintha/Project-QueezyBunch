@@ -33,6 +33,7 @@ include 'includes/updateHandler.php';
                 <?php if($_SESSION['loggedIn']){ ?>
                   <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
                 <?php } ?>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
                 <a href="scores.php"><i class="bi bi-123 custom-icon"></i></a>
                 <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
