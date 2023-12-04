@@ -9,7 +9,7 @@ if(isset($_POST['login'])) {
     if(mysqli_num_rows($select_users) > 0) {
         $row = mysqli_fetch_assoc($select_users);
 
-        // Use password verify to check if the provided password matches the hashed password
+        //password verify to check if the provided password matches the hashed password
         if(password_verify($password, $row['password'])) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['user_name'] = $row['fullName'];

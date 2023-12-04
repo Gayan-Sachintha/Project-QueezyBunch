@@ -63,7 +63,7 @@ if (!$_SESSION['loggedIn']) {
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <a href="singlePlayer.php"><button class="startBtn" id="startbtn">Start Playing</button></a>
+            <a href="singlePlayer.php?new=true"><button class="startBtn" id="startbtn">Start Playing</button></a>
         </div>
     </div>
     <audio id="music">

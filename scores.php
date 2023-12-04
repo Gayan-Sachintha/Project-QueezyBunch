@@ -26,24 +26,44 @@ if(!$_SESSION['loggedIn']){
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="login.php">LOGIN</a>
-                <a href="register.php">SIGN-UP</a>
-                <a href="howtoplay.php">HOW TO PLAY</a>
-                <a href="logout.php">Logout</a>
+                <a href="bestScored.php">BEST SCORED !</a>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
         <div class="container">
             <div class="content">
                 <div class="profileform-wrapper">
-                    <h1 class="text-center">MY SCORES</h1>
-                    <form class="profileform-align">
+                    <h1 class="text-center">SCORES</h1>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Player</th>
+                            <th scope="col">Score</th>
+                            <th scope="col">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                        $sql = "SELECT * FROM `scores` ORDER BY `scores`.`id` DESC LIMIT 10";
+                        $scores = $conn->query($sql);
+
+                        foreach($scores as $score) { ?>
+                        <tr>
+                            <th scope="row"><?=$score['id'];?></th>
+                            <td><?=$score['playerID'];?></td>
+                            <td><?=$score['score'];?></td>
+                            <td><?=$score['datentime'];?></td>
+                        </tr>
+                        <?php } ?>
+                            
+                        </tbody>
+                        </table>
 
 
-<!-- content put this i fetch data with a table -->
-
-
-                    </form>
                 </div>
             </div>
         </div>

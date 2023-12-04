@@ -4,6 +4,13 @@ include 'includes/config.php';
 if(!$_SESSION['loggedIn']){
     redirect("login.php");
 }
+
+$sql = mysqli_query($conn, "SELECT * FROM scores ORDER BY score DESC, id DESC LIMIT 1");
+$result = mysqli_fetch_array($sql);
+$playerID = $result["playerID"];
+$score = $result["score"];
+$datentime = $result["datentime"];
+$gameID = $result["id"];
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +33,8 @@ if(!$_SESSION['loggedIn']){
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
-                <a href="login.php">LOGIN</a>
-                <a href="register.php">SIGN-UP</a>
-                <a href="howtoplay.php">HOW TO PLAY</a>
-                <a href="logout.php">Logout</a>
+                <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
+                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -37,9 +42,11 @@ if(!$_SESSION['loggedIn']){
             <div class="content">
                 <div class="profileform-wrapper">
                     <h1 class="text-center">BEST SCORED !</h1>
-                    <form class="profileform-align">
-
-                    </form>
+                    <hr>
+                    <h4>Player : <?=$playerID;?></h4>
+                    <h4>Game ID : <?=$gameID;?></h4>
+                    <h4>Score : <?=$score;?></h4>
+                    <h4>Date : <?=$datentime;?></h4>
                 </div>
             </div>
         </div>

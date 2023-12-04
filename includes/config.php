@@ -1,7 +1,7 @@
 <?php
+session_start();
 
 $conn = mysqli_connect('localhost','root','','queezybunch') or die('connection failed');
-session_start();
 
 function redirect($url)
 {

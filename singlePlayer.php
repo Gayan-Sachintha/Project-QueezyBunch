@@ -3,7 +3,20 @@ include 'includes/config.php';
 if (!$_SESSION['loggedIn']) {
     redirect("login.php");
 }
+
+if(isset($_GET['new'])){
+    echo '<script>localStorage.removeItem("timeLeft");</script>';
+    echo '<script>localStorage.removeItem("score");</script>';
+    echo '<script>localStorage.removeItem("numQuestions");</script>';
+    echo '<script>localStorage.removeItem("currentLevel");</script>';
+
+    echo '<script>const currentURL = new URL(window.location.href);</script>';
+    echo '<script>const searchParams = new URLSearchParams(currentURL.search);</script>';
+    echo '<script>searchParams.delete("new");</script>';
+    echo '<script>history.replaceState({}, "", `${currentURL.pathname}?${searchParams.toString()}`);</script>';
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +29,17 @@ if (!$_SESSION['loggedIn']) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/player.css" type="text/css">
     <script src="js/bgAudio.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>QUEEZY BUNCH</title>
     <script>
-        let timeLeft = 30;
-        let score = 0;
-        let numQuestions = 1;
-        let currentLevel = 1;
+        let timeLeft = localStorage.getItem('timeLeft') || 30;
+        let score = localStorage.getItem('score') || 0;
+        let numQuestions = localStorage.getItem('numQuestions') || 1;
+        let currentLevel = localStorage.getItem('currentLevel') || 1;
         let timer;
+        let imgApi;
+        let solution;
 
         function updateUI() {
             document.getElementById("question-number").textContent = numQuestions;
@@ -34,17 +50,24 @@ if (!$_SESSION['loggedIn']) {
 
         function handleTimeOut() {
             clearInterval(timer);
-            alert("Time's up! Game Over.");
+            Swal.fire({
+                title: "Time's UP !",
+                text: "Time's up! Game Over.",
+                icon: "error"
+            });
 
             if (currentLevel > 1) {
-                alert("Congratulations! You have completed Level " + (currentLevel - 1) + ".");
+                Swal.fire({
+                    title: "Level Passed",
+                    text: "Congratulations! You have completed Level " + (currentLevel - 1) + ".",
+                    icon: "success"
+                });
             }
 
-            window.location.href = "index.php";
+            resetGame();
         }
 
         function handleInput() {
-            // Check if time is still remaining
             if (timeLeft > 0) {
                 let answer = document.getElementById("answer").value;
                 if (answer !== "") {
@@ -58,20 +81,41 @@ if (!$_SESSION['loggedIn']) {
                         } else {
                             fetchImage();
                         }
+
+                        Swal.fire({
+                            title: "Answered !",
+                            icon: "success"
+                        });
                     } else {
-                        alert("Incorrect answer. Try again!");
+                        Swal.fire({
+                            title: "Wrong Answer",
+                            text: "That answer is wrong",
+                            icon: "error"
+                        });
                     }
                 } else {
-                    alert("Please enter an answer before pressing 'Go!'");
+                    Swal.fire({
+                        title: "Empty Answer",
+                        text: "Please enter an answer",
+                        icon: "error"
+                    });
                 }
             } else {
-                alert("Time's up! Game Over.");
-                window.location.href = "index.php";
+                Swal.fire({
+                    title: "Time's UP !",
+                    text: "Time's up! Game Over.",
+                    icon: "error"
+                });
+                resetGame();
             }
         }
 
         function handleCorrectAnswer() {
-            alert("Congratulations! You have completed Level " + currentLevel + ".");
+            Swal.fire({
+                title: "Level Passed",
+                text: "Congratulations! You have completed Level " + (currentLevel - 1) + ".",
+                icon: "success"
+            });
             currentLevel++;
             numQuestions = 1;
             fetchImage();
@@ -85,7 +129,7 @@ if (!$_SESSION['loggedIn']) {
                     solution = data.solution;
                     document.getElementById("imgApi").src = imgApi;
                     document.getElementById("note").innerHTML = 'Ready?';
-                    clearInterval(timer);                                 // Stops the previous timer
+                    clearInterval(timer);
                     timer = setInterval(() => {
                         timeLeft--;
                         document.getElementById("timer").textContent = timeLeft;
@@ -99,9 +143,47 @@ if (!$_SESSION['loggedIn']) {
                 });
         }
 
-        fetchImage();
-    </script>
+        function resetGame() {
+            fetch('actions/updateScore.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    score: score
+                }),
+            })
 
+            .then(response => response.json())
+
+            .then(data => {
+                console.log(data);
+            })
+
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            timeLeft = 30;
+            score = 0;
+            numQuestions = 1;
+            currentLevel = 1;
+            updateUI();
+            fetchImage();
+        }
+
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('timeLeft', timeLeft);
+            localStorage.setItem('score', score);
+            localStorage.setItem('numQuestions', numQuestions);
+            localStorage.setItem('currentLevel', currentLevel);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateUI();
+            fetchImage();
+        });
+    </script>
 </head>
 
 <body>
@@ -110,7 +192,7 @@ if (!$_SESSION['loggedIn']) {
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
                 <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
-                <a href="profile.php"><i class="bi bi-person-vcard-fill custom-icon"></i></i></a>
+                <a href="profile.php"><i class="bi bi-person-fill custom-icon"></i></i></a>
                 <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>

@@ -27,11 +27,11 @@ if(!$_SESSION['loggedIn']){
         <nav class="navbar">
             <h1 class="logo">QUEZZY BUNCH</h1>
             <div class="links">
+            <!-- <a href="howtoplay.php">HOW TO PLAY</a> -->
             <?php if($_SESSION['loggedIn']){ ?>
                   <a href="profile.php">Hi, <?=$_SESSION['user_name'];?></a>
                 <?php } ?>
-            <a href="howtoplay.php">HOW TO PLAY</a>
-                <a href="profile.php"><i class="bi bi-person-vcard-fill custom-icon"></i></i></a>
+                <a href="scores.php"><i class="bi bi-123 custom-icon"></i></a>
                 <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
