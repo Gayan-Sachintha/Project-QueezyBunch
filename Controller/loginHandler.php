@@ -14,7 +14,7 @@ if(isset($_POST['login'])) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['user_name'] = $row['fullName'];
             $_SESSION['user_email'] = $row['email'];
-            header('location:index.php');
+            header('location:../View/index.php');
         } else {
             $message[] = 'Incorrect email or password!';
         }
@@ -31,7 +31,7 @@ if (isset($_GET['logout'])) {
 
     session_destroy();
 
-    header("Location: login.php");
+    header("Location: ../View/login.php");
     exit();
 }
 

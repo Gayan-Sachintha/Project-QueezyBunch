@@ -20,9 +20,9 @@ if (isset($_POST['updatebtn'])) {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            redirect('profile.php');
+            redirect('../View/profile.php');
         } else {
-            redirect('login.php?code=3');
+            redirect('../View/login.php?code=3');
         }
     } else {
         // Current password is incorrect, show the error message

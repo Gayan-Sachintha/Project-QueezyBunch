@@ -1,7 +1,7 @@
 <?php
 
-include 'includes/config.php';
-include 'includes/loginHandler.php';
+include '../Controller/config.php';
+include '../Controller/loginHandler.php';
 
 ?>
 
@@ -15,8 +15,8 @@ include 'includes/loginHandler.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">   
-    <script src="js/bgAudio.js"></script>
+    <link rel="stylesheet" href="../Static Assets/css/style.css" type="text/css">   
+    <script src="../Static Assets/js/bgAudio.js"></script>
     <title>QUEEZY BUNCH</title>
 </head>
 
@@ -55,7 +55,7 @@ include 'includes/loginHandler.php';
         </div>
     </div>
     <audio id="music">
-        <source type="audio/mp3" src="assets/audio/bg_music.mp3">
+        <source type="audio/mp3" src="../Static Assets/assets/audio/bg_music.mp3">
     </audio>
 </body>
 

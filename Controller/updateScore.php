@@ -1,7 +1,7 @@
 <?php
-ini_set('memory_limit', '256M'); // Set the limit to 256 megabytes, adjust as needed
+ini_set('memory_limit', '256M'); 
 
-include "../includes/config.php";
+include "../Controller/config.php";
 
 $data = json_decode(file_get_contents('php://input'), true);
 

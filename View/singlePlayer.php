@@ -1,5 +1,5 @@
 <?php
-include 'includes/config.php';
+include '../Controller/config.php';
 if (!$_SESSION['loggedIn']) {
     redirect("login.php");
 }
@@ -27,23 +27,23 @@ if(isset($_GET['new'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/player.css" type="text/css">
-    <script src="js/bgAudio.js"></script>
+    <link rel="stylesheet" href="../Static Assets/css/player.css" type="text/css">
+    <script src="../Static Assets/js/bgAudio.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>QUEEZY BUNCH</title>
     <script>
-        let timeLeft = localStorage.getItem('timeLeft') || 30;
+        let timeLeft = localStorage.getItem('timeLeft') || 45;
         let score = localStorage.getItem('score') || 0;
         let numQuestions = localStorage.getItem('numQuestions') || 1;
         let currentLevel = localStorage.getItem('currentLevel') || 1;
         let timer;
         let imgApi;
         let solution;
-        let correctAnsSound = new Audio("assets/audio/goThrough.mp3");
-        let wrongAnsSound = new Audio("assets/audio/incorrect.mp3");
-        let levelUpSound = new Audio("assets/audio/levelComplete.mp3");
-        let timeOutSound = new Audio("assets/audio/timesUp.mp3");
+        let correctAnsSound = new Audio("../Static Assets/assets/audio/goThrough.mp3");
+        let wrongAnsSound = new Audio("../Static Assets/assets/audio/incorrect.mp3");
+        let levelUpSound = new Audio("../Static Assets/assets/audio/levelComplete.mp3");
+        let timeOutSound = new Audio("../Static Assets/assets/audio/timesUp.mp3");
 
         function updateUI() {
             document.getElementById("question-number").textContent = numQuestions;
@@ -151,7 +151,7 @@ if(isset($_GET['new'])){
         }
 
         function resetGame() {
-            fetch('actions/updateScore.php', {
+            fetch('../Controller/updateScore.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ if(isset($_GET['new'])){
                 console.error('Error:', error);
             });
             
-            timeLeft = 30;
+            timeLeft = 45;
             score = 0;
             numQuestions = 1;
             currentLevel = 1;
@@ -201,7 +201,7 @@ if(isset($_GET['new'])){
                 <a href="index.php"><i class="bi bi-house custom-icon"></i></i></a>
                 <a href="scores.php"><i class="bi bi-123 custom-icon"></i></a>
                 <a href="profile.php"><i class="bi bi-person-fill custom-icon"></i></i></a>
-                <a href="logout.php"><i class="bi bi-power custom-icon"></i></a>
+                <a href="../Controller/logout.php"><i class="bi bi-power custom-icon"></i></a>
                 <button class="" id="mutebtn"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </nav>
@@ -213,7 +213,7 @@ if(isset($_GET['new'])){
                 <span>Level <span id="level-no">1</span></span>
                 <span>Question<span id="question-number">1</span></span>
                 <span>Score<span id="score">0</span></span>
-                <span>Time <span id="timer">30</span></span>
+                <span>Time <span id="timer">45</span></span>
             </div>
             <div class="imgApi">
                 <img src="" alt="Question Image" id="imgApi" class="color-image">
@@ -229,7 +229,7 @@ if(isset($_GET['new'])){
         </div>
     </div>
     <audio id="music">
-        <source type="audio/mp3" src="assets/audio/bg_music.mp3">
+        <source type="audio/mp3" src="../Static Assets/assets/audio/bg_music.mp3">
     </audio>
 
 </body>

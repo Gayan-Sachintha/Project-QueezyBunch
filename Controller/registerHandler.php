@@ -20,7 +20,7 @@ if(isset($_POST['register'])){
  
           mysqli_query($conn, "INSERT INTO `users`(fullName, email, age, password) VALUES('$fullName', '$email', '$age', '$hashedPassword')") or die('query failed');
           $message[] = 'Registered successfully!';
-          header('location:login.php');
+          header('location:../View/login.php');
        }
     }
  }
