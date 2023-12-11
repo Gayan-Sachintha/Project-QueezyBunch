@@ -94,5 +94,5 @@ Game Steps Given Below
 
 **This project is licensed under the :** [MIT License](https://choosealicense.com/licenses/mit/)
 
-Happy shopping at Chamika Mobile! 📱✨
+## Happy Gaming with QueezyBunch! 🎮🕹️🎉
 
