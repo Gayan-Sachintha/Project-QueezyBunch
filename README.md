@@ -90,3 +90,9 @@ Game Steps Given Below
 ![step4](https://github.com/Gayan-Sachintha/Project-QueezyBunch/assets/118958174/1fb73a30-a855-4ad9-8b11-4d79ac402115)
 ![step5](https://github.com/Gayan-Sachintha/Project-QueezyBunch/assets/118958174/2e00f67c-5921-4c0a-8792-95a15fc4d374)
 
+## License
+
+**This project is licensed under the :** [MIT License](https://choosealicense.com/licenses/mit/)
+
+Happy shopping at Chamika Mobile! 📱✨
+
