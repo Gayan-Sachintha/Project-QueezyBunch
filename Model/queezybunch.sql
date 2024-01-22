@@ -40,15 +40,7 @@ CREATE TABLE IF NOT EXISTS `scores` (
 -- Dumping data for table `scores`
 --
 
-INSERT INTO `scores` (`id`, `playerID`, `score`, `datentime`) VALUES
-(7, 's@gmail.com', 0, '2023-12-04 07:35:29'),
-(6, 's@gmail.com', 3, '2023-12-04 07:34:58'),
-(5, 's@gmail.com', 3, '2023-12-04 07:32:18'),
-(8, 's@gmail.com', 0, '2023-12-04 07:36:00'),
-(9, 's@gmail.com', 4, '2023-12-04 07:36:32'),
-(10, 's@gmail.com', 5, '2023-12-04 07:37:05'),
-(11, 's@gmail.com', 0, '2023-12-04 07:37:36'),
-(12, 's@gmail.com', 0, '2023-12-04 07:38:07');
+
 
 -- --------------------------------------------------------
 
@@ -69,12 +61,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`fullName`, `email`, `age`, `password`) VALUES
-('Gayan Sachintha', 's@gmail.com', 23, '$2y$10$.Yq4CPkIcEGQT09.fQFt5eHDUnjhHBRiJ3OcUA6in53QiTRNYH3Z.'),
-('Marapana', 'thushani@gmail.com', 78, '$2y$10$JUksl/onEyUwdKLuKqP8BOk6PhTjOIMzwXMolrGomYqIbDJSXb/bi'),
-('fanta', 'fanta.hustler@gmail.com', 23, '$2y$10$rhjQ/bhm.tLSg72MK1aGj.nhy4Ftp05uN7x5Uuu/rG7CQOjkt37h2'),
-('Kottawa Gamage Gayan Sachintha', 'gayan@gmail.com', 24, '$2y$10$Nd4XFeM3XdubgjmYREmIEOdU5BSg8nurXzH90CdTp06Fwbd6eXr/6');
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
